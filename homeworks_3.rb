@@ -1,17 +1,16 @@
 
   class AuditFuel
-    attr_accessor :audit, :tank 
+    attr_accessor :audit 
 
     def initialize(audit = 'Перевірка наявності палива!')
       @audit = audit
-      @tank = tank
       puts @audit
       puts
       self  
     end
 
     def audit_fuel (tank = 'повний')
-      if @tank == 'повний'
+      if tank == 'повний'
         fuel = 'Палива немає!!!'
       else 
         fuel = 'Паливо є, можна заводити автомобіль.'
