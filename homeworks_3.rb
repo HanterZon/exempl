@@ -1,26 +1,26 @@
 
-  class AuditFuel
-    attr_accessor :audit 
+class AuditFuel
+  attr_accessor :audit, :fuel_count
 
-    def initialize(audit = 'Перевірка наявності палива!')
-      @audit = audit
-      puts @audit
-      puts
-      self  
-    end
-
-    def audit_fuel (tank = 'повний')
-      if tank == 'повний'
-        fuel = 'Палива немає!!!'
-      else 
-        fuel = 'Паливо є, можна заводити автомобіль.'
-      end
-    puts fuel 
-    puts 
-    end
+  def initialize(audit = 'Перевірка наявності палива!')
+    @audit = audit
+    puts @audit
+    puts
+    self  
   end
 
-auditFuel = AuditFuel.new("Перевірка наявності палива!")
+  def audit_fuel (fuel_count = rand(100))
+    if fuel_count <= 100
+      fuel = "Паливa  #{ fuel_count }л з 100л, можна заводити автомобіль."
+    else 
+      fuel = "Палива  #{ fuel_count } !!!"
+    end
+  puts fuel 
+  puts 
+  end
+end
+
+auditFuel = AuditFuel.new
 
 auditFuel.audit
 auditFuel.audit_fuel
@@ -59,11 +59,13 @@ class Car
     puts 'Натискаємо педаль газу'
     puts
     puts 'Педальгазу натиснута'
-     puts  	
+    puts  	
   end
+
 end
 
 car = Car.new
+
 car.actuation_machines
 car.press_clutch_pedal
 car.transmission
